@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" th:href="main.css"/>
+  <body> 
+	
+	<div class="container">
+		<div>
+			<h1>Bienvenido al TP 2 de DESI </h1>
+			<h2>
+				<span th:text="'Integrantes: Aravena - Bruno - Mella - Lazarte'"></span>
+			</h2>
+		</div>
+	
+		<h2>
+			<span th:text="'Historias de usuario:'"></span>
+		</h2>
+	
+		<ul>
+			<li><a th:href="climaRE" class="btn btn-primary margenes">Registrar/Editar clima</a></li>
+			<br>
+			<li><a th:href="climaExtendidoRE" class="btn btn-primary margenes">Registrar/Editar Pronostico Extendido</a>
+			</li>
+			<br>
+			<li><a th:href="eventoMeteorologicoRegistrarEditar" class="btn btn-primary margenes">Registrar/Editar Evento
+					Meteorologico</a></li>
+			<br>
+			<li><a th:href="climaConsultar" class="btn btn-primary margenes">Consultar Clima</a></li>
+		</ul>
+	
+		<h3>Mella Ivan implementó la historia -> Registrar/Editar Pronostico Extendido</h3>
+		<h3>Aravena Johanna implementó la historia -> Consultar Clima</h3>
+		
+	</div>
+  </body>
+</html>

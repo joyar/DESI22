@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+<body>
+ 	
+ 	
+ 	<div>
+ 		<form th:object="${clima_extendido}" th:action="@{/agregarClimaModificado}" method="post">
+		 
+		 
+		 
+		 	<input type="hidden" th:field="*{id}" value="*{id}">
+		 
+			 <div class="form-group row">
+		    <div class="col-sm-2">Lista Ciudades</div>
+		    
+		  
+		    <div class="col-sm-10">
+		     <tr>
+			      <td><select th:field="*{codigo_postal}" id="ciudad" class="form-control" >
+		      	
+		      			<option th:each="ciudad : ${ciudades}" th:value="${ciudad.codigo_postal}"  th:text="${ciudad.nombre}" ></option>
+		      		</select></td>
+		      </tr>
+		    </div>
+		  </div>
+		  
+		  
+		  <div class="form-group row">
+		    
+		    <label for="fecha" class="col-sm-2 col-form-label">Fecha</label>
+		    <div class="col-sm-10">
+		    <tr>
+			      <td><input th:field="*{fecha}" type="date" class="form-control" id="fecha" placeholder=""></td>
+			      <p th:each="err : ${#fields.errors('global')}" th:text="${err}" class="error" />
+			      <th><p th:if="${#fields.hasErrors('fecha')}" th:errorclass="error" th:errors="*{fecha}" /></p></th> 
+			
+			 </tr>			        
+		    </div>
+		  </div>
+		  
+		  <div class="form-group row">
+		  
+		  
+		    <label for="probabilidad_lluvia" class="col-sm-2 col-form-label">Probabilidad Lluvias</label>
+		    <div class="col-sm-10">
+		     <tr>
+		      <td><input th:field="*{probabilidad_lluvia}"  type="text" class="form-control" id="probabilidad_lluvia" placeholder=""></td>
+		      <th><p th:if="${#fields.hasErrors('probabilidad_lluvia')}" th:errorclass="error" th:errors="*{probabilidad_lluvia}" /> </th>
+			</tr>
+			</div>
+			
+		  </div>
+		  
+		  <div class="form-group row">
+		    <label for="cantidad_prevista" class="col-sm-2 col-form-label">Cantidad lluvias</label>
+		    <div class="col-sm-10">
+		      <tr>
+		      <td><input th:field="*{cantidad_prevista}"  type="text" class="form-control" id="cantidad_prevista" placeholder=""></td>
+		      <td><p th:if="${#fields.hasErrors('cantidad_prevista')}" th:errorclass="error" th:errors="*{cantidad_prevista}" /> </td>
+				</tr>		        
+		    </div>
+		  </div>
+		  
+		  <div class="form-group row">
+		    <label for="descripcion_pronostico" class="col-sm-2 col-form-label">Descripcion pronostico</label>
+		    <div class="col-sm-10">
+		      <tr>
+		      <td><input th:field="*{descripcion_pronostico}" type="text" class="form-control" id="descripcion_pronostico" placeholder=""></td>
+		      <td><p th:if="${#fields.hasErrors('descripcion_pronostico')}" th:errorclass="error" th:errors="*{descripcion_pronostico}" /> </td>
+			 </tr>		        
+		    </div>
+		  </div>
+		  
+		  <div class="form-group row">
+		    <div class="col-sm-10" align="center">
+		      <button type="submit" name="action" value="modificar" class="btn btn-primary">Modificar</button>
+		    </div>
+		  </div>
+		</form>
+ 	
+ 	
+ 	
+ 	</div>
+ 		
+ 		
+	<div class="col-sm-10" align="center" >
+ 			<a th:href="@{/climaExtendidoRE}" class="btn btn-primary">Volver</a>
+		</div>
+	
+</body>
+</html>
